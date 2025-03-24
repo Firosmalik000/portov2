@@ -2,31 +2,31 @@
 import React from 'react';
 import { AnimatedTooltip } from './ui/components/ui/animated-tooltip';
 
-import HeroImage from '@/asset/hero.jpg';
+import { FaWhatsapp, FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
 const people = [
   {
     id: 1,
     name: 'Whatsapp',
     designation: 'Software Engineer',
-    image: HeroImage,
+    icon: <FaWhatsapp />,
   },
   {
     id: 2,
     name: 'Instagram',
     designation: 'Product Manager',
-    image: HeroImage,
+    icon: <FaInstagram />,
   },
   {
     id: 3,
     name: 'Linked In',
     designation: 'Data Scientist',
-    image: HeroImage,
+    icon: <FaLinkedin />,
   },
   {
     id: 4,
     name: 'Github',
     designation: 'UX Designer',
-    image: HeroImage,
+    icon: <FaGithub />,
   },
 ];
 
