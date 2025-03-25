@@ -47,10 +47,10 @@ export const TypewriterEffectSmooth = ({
   }, [displayText, isDeleting, currentWordIndex, words.text]);
 
   return (
-    <div className={cn('flex items-center space-x-1 my-6', className)}>
+    <div className={cn('flex items-center space-x-1 mt-2 mb-6', className)}>
       <motion.div className="overflow-hidden pb-2" initial={{ width: '0%' }} animate={{ width: 'fit-content' }} transition={{ duration: 2, ease: 'linear', delay: 1 }}>
-        <div className="text-xs sm:text-base md:text-xl lg:text-3xl xl:text-4xl font-bold" style={{ whiteSpace: 'nowrap' }}>
-          {displayText}
+        <div className="text-xs sm:text-base md:text-xl lg:text-3xl xl:text-3xl font-bold" style={{ whiteSpace: 'nowrap' }}>
+          <span className="text-blue-500">I am</span> {displayText}
         </div>
       </motion.div>
       <motion.span

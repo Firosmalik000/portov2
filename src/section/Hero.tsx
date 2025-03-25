@@ -14,12 +14,15 @@ const Hero = () => {
         {/* Hero Text */}
         <div className="max-w-4xl">
           <motion.div initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}>
+            <p className="text-5xl md:text-xl font-bold text-blue-500 mb-2">Hey 👋, it s me</p>
+          </motion.div>
+          <motion.div initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}>
             <p className="text-5xl md:text-4xl font-bold text-white">Firos Malik Abdillah</p>
           </motion.div>
           <TypewriterEffectSmooth
             words={{
               text: ['Junior Frontend Developer', 'Fullstack Developer'],
-              className: 'text-blue-500 text-2xl md:text-3xl',
+              className: 'text-blue-500 text-2xl md:text-2xl',
             }}
           />
           <motion.div initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}>

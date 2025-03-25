@@ -27,18 +27,21 @@ export default Background;
 
 // Data Dummy
 const educationData = [
-  { degree: 'Bachelor of Computer Science', school: 'XYZ University', year: '2018 - 2022' },
-  { degree: 'High School Diploma', school: 'ABC High School', year: '2015 - 2018' },
+  { degree: 'Bachelor of Dakwa Islamiya', school: 'Al - Azhar University', year: '2019 - present' },
+  { degree: 'High School', school: 'SMA Bina Insan Mandiri', year: '2015 - 2018' },
 ];
 
 const experienceData = [
-  { role: 'Frontend Developer', company: 'Tech Corp', year: '2023 - Present', desc: 'Worked on React & Next.js projects.' },
-  { role: 'Intern Web Developer', company: 'Startup Inc', year: '2022 - 2023', desc: 'Developed UI/UX for a SaaS platform.' },
+  { role: 'IT Programmer', company: 'PT Inti Surya Laboratorium', year: 'Sep 2024 - present', desc: 'Developed administration panel using React JS and Laravel.' },
+  { role: 'Front End Developer Frelance', company: 'DB Click', year: 'Sep 2024 - present', desc: 'Worked on a website for a company.' },
+  { role: 'Frontend Developer', company: 'PT Hash Rekayasa Teknologi', year: 'Jan 2024 - Jul 2024', desc: 'Developed administration panel.' },
 ];
 
 const certificateData = [
-  { title: 'React Developer Certification', issuer: 'Udemy', year: '2023' },
-  { title: 'JavaScript Advanced Course', issuer: 'Coursera', year: '2022' },
+  { title: 'React Developer Certification', issuer: 'HackerRank', year: '2023' },
+  { title: 'React Developer Certification', issuer: 'HackerRank', year: '2023' },
+  { title: 'React Developer Certification', issuer: 'HackerRank', year: '2023' },
+  { title: 'React Developer Certification', issuer: 'HackerRank', year: '2023' },
 ];
 
 // Components

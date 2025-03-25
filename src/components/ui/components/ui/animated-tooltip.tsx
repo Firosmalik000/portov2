@@ -61,17 +61,17 @@ export const AnimatedTooltip = ({
           </AnimatePresence>
           <motion.div
             initial={{ opacity: 0, y: 10, scale: 0.9 }}
-            animate={{
+            whileInView={{
               opacity: 1,
               y: 0,
               scale: 1,
               rotate: [0, 3, -3, 0],
-              transition: {
-                duration: 0.6,
-                delay: 0.15 * index,
-                ease: 'easeOut',
-                bounce: 0.4,
-              },
+            }}
+            transition={{
+              duration: 0.6,
+              delay: 0.5 * index,
+              ease: 'easeOut',
+              bounce: 0.4,
             }}
             exit={{ opacity: 0, y: 10, scale: 0.9 }}
           >
