@@ -2,12 +2,18 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { CardDemo } from '@/components/ui/CardDemo';
+import { Rubik } from 'next/font/google';
+import { cn } from '@/app/lib/utils';
+
+// Inisialisasi font di luar komponen
+const rubik = Rubik({ subsets: ['latin'], weight: ['400', '700'] });
 
 const Contact = () => {
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLFormElement>(null);
+
   return (
-    <div className="dark:text-white text-black w-full h-full flex flex-col items-center justify-center p-6 bg-gradient-to-b from-transparent  to-gray-800">
-      <motion.h2 initial={{ y: -50, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ duration: 1, ease: 'easeOut' }} className="text-4xl md:text-5xl font-extrabold text-center mb-6">
+    <div className="dark:text-white text-black w-full h-full flex flex-col items-center justify-center p-6 bg-gradient-to-b from-transparent to-gray-800">
+      <motion.h2 initial={{ y: -50, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ duration: 1, ease: 'easeOut' }} className={cn('text-3xl md:text-4xl font-extrabold text-center mb-6', rubik.className)}>
         Connect with Me!
       </motion.h2>
 
@@ -15,14 +21,14 @@ const Contact = () => {
         initial={{ scale: 0.8, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
-        className="container bg-white shadow-2xl dark:bg-gray-900 rounded-xl shadow-2xl lg:w-2/3 w-11/12 max-w-4xl p-8"
+        className="container bg-white shadow-2xl dark:bg-gray-900 rounded-xl lg:w-2/3 w-11/12 max-w-4xl p-8"
       >
         <div className="flex flex-col lg:flex-row gap-8 items-center">
           <div className="w-full lg:w-1/2">
             <CardDemo />
           </div>
           <div className="w-full lg:w-1/2">
-            <form action="" className="w-full" ref={inputRef as React.Ref<HTMLFormElement>}>
+            <form className="w-full" ref={inputRef}>
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col md:flex-row gap-4">
                   <div className="w-full">

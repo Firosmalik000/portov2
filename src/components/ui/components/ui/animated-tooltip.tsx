@@ -11,6 +11,7 @@ export const AnimatedTooltip = ({
     name: string;
     designation: string;
     icon: React.ReactNode;
+    link: string;
   }[];
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -59,26 +60,28 @@ export const AnimatedTooltip = ({
               </motion.div>
             )}
           </AnimatePresence>
-          <motion.div
-            initial={{ opacity: 0, y: 10, scale: 0.9 }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-              scale: 1,
-              rotate: [0, 3, -3, 0],
-            }}
-            transition={{
-              duration: 0.6,
-              delay: 0.5 * index,
-              ease: 'easeOut',
-              bounce: 0.4,
-            }}
-            exit={{ opacity: 0, y: 10, scale: 0.9 }}
-          >
-            <div onMouseMove={handleMouseMove} className="flex items-center justify-center rounded-full h-14 w-14 border-2 group-hover:scale-105 group-hover:z-30 border-white bg-gray-800 text-white relative transition duration-500">
-              {item.icon}
-            </div>
-          </motion.div>
+          <a href={item.link}>
+            <motion.div
+              initial={{ opacity: 0, y: 10, scale: 0.9 }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                rotate: [0, 3, -3, 0],
+              }}
+              transition={{
+                duration: 0.6,
+                delay: 0.5 * index,
+                ease: 'easeOut',
+                bounce: 0.4,
+              }}
+              exit={{ opacity: 0, y: 10, scale: 0.9 }}
+            >
+              <div onMouseMove={handleMouseMove} className="flex items-center justify-center rounded-full h-14 w-14 border-2 group-hover:scale-105 group-hover:z-30 border-white bg-gray-800 text-white relative transition duration-500">
+                {item.icon}
+              </div>
+            </motion.div>
+          </a>
         </div>
       ))}
     </>

@@ -2,6 +2,7 @@
 import { Tabs } from '@/components/ui/tabs';
 import { FaGraduationCap, FaBriefcase, FaCertificate } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/moving-border';
 
 const Background = () => {
   return (
@@ -38,10 +39,9 @@ const experienceData = [
 ];
 
 const certificateData = [
-  { title: 'React Developer Certification', issuer: 'HackerRank', year: '2023' },
-  { title: 'React Developer Certification', issuer: 'HackerRank', year: '2023' },
-  { title: 'React Developer Certification', issuer: 'HackerRank', year: '2023' },
-  { title: 'React Developer Certification', issuer: 'HackerRank', year: '2023' },
+  { title: 'React (Basic) Certificate', issuer: 'HackerRank', year: '2024', link: 'https://www.hackerrank.com/certificates/dfbffa406aa2' },
+  { title: 'Frontend Developer (React) Certificate', issuer: 'HackerRank', year: '2024', link: 'https://www.hackerrank.com/certificates/f967be31a095' },
+  { title: 'Problem Solving (Basic) Certificate', issuer: 'HackerRank', year: '2024', link: 'https://www.hackerrank.com/certificates/8a35c9cc75f2' },
 ];
 
 // Components
@@ -92,16 +92,22 @@ const Certificate = () => {
       <h2 className="text-xl font-bold flex items-center gap-2 mb-4">
         <FaCertificate className="text-green-400" /> Certificates
       </h2>
-      <ul className="space-y-3">
+      <div className="space-y-3">
         {certificateData.map((cert, index) => (
-          <li key={index} className="border-l-4 border-green-400 pl-4">
-            <p className="text-lg font-semibold">{cert.title}</p>
-            <p className="text-sm text-gray-300">
-              {cert.issuer}, {cert.year}
-            </p>
-          </li>
+          <div key={index} className="border-l-4 border-green-400 pl-4 flex items-center justify-between">
+            <div>
+              <p className="text-lg font-semibold">{cert.title}</p>
+              <p className="text-sm text-gray-300">
+                {cert.issuer}, {cert.year}
+              </p>
+            </div>
+
+            <a href={cert.link}>
+              <Button className="">Show Credential</Button>
+            </a>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

@@ -27,10 +27,10 @@ function Navbar({ className }: { className?: string }) {
 
         {/* Navbar Links */}
         <div className="flex items-center space-x-6">
-          {['About', 'Education', 'Experience', 'Contact'].map((text, index) => (
+          {['About', 'Projects', 'ContactPage'].map((text, index) => (
             <motion.div key={index} variants={linkVariants}>
               <Link href={`/${text.toLowerCase()}`} className="relative text-sm font-semibold text-white hover:text-gray-300 transition duration-300">
-                {text}
+                {text === 'ContactPage' ? 'Contact' : text}
                 <motion.span className="absolute left-0 bottom-0 w-full h-0.5 bg-gray-300 origin-left scale-x-0 transition-transform" whileHover={{ scaleX: 1 }} />
               </Link>
             </motion.div>

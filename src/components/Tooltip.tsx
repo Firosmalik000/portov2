@@ -9,24 +9,28 @@ const people = [
     name: 'Whatsapp',
     designation: 'Software Engineer',
     icon: <FaWhatsapp />,
+    link: 'https://wa.me/+6285236446961',
   },
   {
     id: 2,
     name: 'Instagram',
     designation: 'Product Manager',
     icon: <FaInstagram />,
+    link: 'https://www.instagram.com/firos_malik/',
   },
   {
     id: 3,
     name: 'Linked In',
     designation: 'Data Scientist',
     icon: <FaLinkedin />,
+    link: 'https://www.linkedin.com/in/firos-malik-abdillah/',
   },
   {
     id: 4,
     name: 'Github',
     designation: 'UX Designer',
     icon: <FaGithub />,
+    link: 'https://github.com/Firosmalik000/',
   },
 ];
 

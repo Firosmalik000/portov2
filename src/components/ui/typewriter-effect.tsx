@@ -2,7 +2,11 @@
 
 import { cn } from '@/app/lib/utils';
 import { motion } from 'framer-motion';
+import { Tektur } from 'next/font/google';
 import { useEffect, useState } from 'react';
+
+// Inisialisasi font di luar komponen
+const tektur = Tektur({ subsets: ['latin'], weight: ['400', '700'] });
 
 export const TypewriterEffectSmooth = ({
   words,
@@ -49,8 +53,9 @@ export const TypewriterEffectSmooth = ({
   return (
     <div className={cn('flex items-center space-x-1 mt-2 mb-6', className)}>
       <motion.div className="overflow-hidden pb-2" initial={{ width: '0%' }} animate={{ width: 'fit-content' }} transition={{ duration: 2, ease: 'linear', delay: 1 }}>
-        <div className="text-xs sm:text-base md:text-xl lg:text-3xl xl:text-3xl font-bold" style={{ whiteSpace: 'nowrap' }}>
-          <span className="text-blue-500">I am</span> {displayText}
+        <div className={'text-xs sm:text-base md:text-xl lg:text-3xl xl:text-3xl font-bold'} style={{ whiteSpace: 'nowrap' }}>
+          <span className={`text-blue-500 `}>I am</span>
+          <span className={cn(`text-white`, tektur.className)}> {displayText}</span>
         </div>
       </motion.div>
       <motion.span

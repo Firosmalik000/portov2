@@ -22,7 +22,7 @@ const Hero = () => {
           <TypewriterEffectSmooth
             words={{
               text: ['Junior Frontend Developer', 'Fullstack Developer'],
-              className: 'text-blue-500 text-2xl md:text-2xl',
+              className: 'text-blue-500 text-2xl md:text-2xl tektur',
             }}
           />
           <motion.div initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}>
