@@ -1,12 +1,12 @@
 'use client';
 import React from 'react';
-// import pdf from '../../asset/resumefiros.pdf';
+import image from '@/asset/about2.jpg';
 import { cn } from '@/app/lib/utils';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <div className={cn('relative overflow-hidden h-[600px] w-full rounded-md shadow-xl mx-auto bg-cover p-4 flex items-center justify-start', `bg-[url(@/asset/about2.jpg)]`)}>
+    <div className={cn('relative overflow-hidden h-[600px] w-full rounded-md shadow-xl mx-auto bg-cover p-4 flex items-center justify-start', `bg-[url(${image})]`)}>
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/60  backdrop-opacity-60"></div>
 
