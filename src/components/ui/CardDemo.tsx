@@ -2,7 +2,6 @@
 
 import { FaGithub, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import meImage from '@/asset/me.jpg';
 export function CardDemo() {
   const content = [
     {
@@ -17,7 +16,10 @@ export function CardDemo() {
   ];
   return (
     <div className="max-w-xs w-full group/card">
-      <div className={'cursor-pointer overflow-hidden relative card h-[600px] w-[400px] rounded-md shadow-xl max-w-sm mx-auto bg-cover flex flex-col justify-between p-4'} style={{ backgroundImage: `url(${meImage})` }}>
+      <div
+        className={'cursor-pointer overflow-hidden relative rounded-md shadow-xl bg-cover flex flex-col justify-between p-4 sm:p-6 text-white h-auto min-h-[500px] md:min-h-[600px] w-full max-w-sm sm:max-w-md md:max-w-lg'}
+        style={{ backgroundImage: "url('/me.jpg')" }}
+      >
         <div className="absolute w-full h-full top-0 left-0 transition duration-300 hover:bg-black bg-gray-900   opacity-60"></div>
         <div className="flex flex-row items-center space-x-4 z-10">
           <div className="flex flex-col"></div>

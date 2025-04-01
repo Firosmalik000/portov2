@@ -24,7 +24,7 @@ const TechStack = () => {
       <motion.div initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}>
         <p className="text-4xl md:text-3xl font-extrabold text-center text-white mb-4">TECH STACK</p>
       </motion.div>
-      <div className="grid grid-cols-6 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
         {data.map((item, index) => (
           <motion.div
             key={item.id}

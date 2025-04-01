@@ -6,9 +6,9 @@ import { Button } from '@/components/ui/moving-border';
 
 const Background = () => {
   return (
-    <div className="flex flex-col    items-center justify-center h-screen w-full text-white">
+    <div className="flex flex-col    items-center justify-center h-screen w-full text-white md:px-[100px] px-4">
       <motion.div initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}>
-        <p className="text-4xl md:text-3xl  font-extrabold">Profesional Background</p>
+        <p className="text-2xl md:text-4xl lg:text-3xl text-center  font-extrabold">PROFESIONAL BACKGROUND</p>
       </motion.div>
       <Tabs
         containerClassName="w-full max-w-3xl px-6 py-8  rounded-xl shadow-lg"
@@ -88,13 +88,13 @@ const Experience = () => {
 
 const Certificate = () => {
   return (
-    <div className="p-6 bg-gray-900 rounded-lg shadow-md">
+    <div className="p-6 bg-gray-900 rounded-lg shadow-md w-full max-w-2xl mx-auto">
       <h2 className="text-xl font-bold flex items-center gap-2 mb-4">
         <FaCertificate className="text-green-400" /> Certificates
       </h2>
       <div className="space-y-3">
         {certificateData.map((cert, index) => (
-          <div key={index} className="border-l-4 border-green-400 pl-4 flex items-center justify-between">
+          <div key={index} className="border-l-4 border-green-400 pl-4 flex flex-col sm:flex-row items-start sm:items-center justify-between space-y-2 sm:space-y-0">
             <div>
               <p className="text-lg font-semibold">{cert.title}</p>
               <p className="text-sm text-gray-300">
@@ -102,8 +102,8 @@ const Certificate = () => {
               </p>
             </div>
 
-            <a href={cert.link}>
-              <Button className="">Show Credential</Button>
+            <a href={cert.link} className="w-full sm:w-auto">
+              <Button className="w-full sm:w-auto">Show Credential</Button>
             </a>
           </div>
         ))}
