@@ -36,6 +36,7 @@ const experienceData = [
   { role: 'IT Programmer', company: 'PT Inti Surya Laboratorium', year: 'Sep 2024 - present', desc: 'Developed administration panel using React JS and Laravel.' },
   { role: 'Front End Developer Frelance', company: 'DB Click', year: 'Sep 2024 - present', desc: 'Worked on a website for a company.' },
   { role: 'Frontend Developer', company: 'PT Hash Rekayasa Teknologi', year: 'Jan 2024 - Jul 2024', desc: 'Developed administration panel.' },
+  { role: 'MERN Stack Developer', company: 'Eduwork ID', year: 'Sep 2023 - Des 2023', desc: 'Internship at Eduwork ID.' },
 ];
 
 const certificateData = [

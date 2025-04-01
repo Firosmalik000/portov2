@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 
 function Footer() {
   return (
@@ -11,28 +11,28 @@ function Footer() {
 
         {/* Social Media */}
         <div className="flex space-x-4 mt-4 md:mt-0">
-          <Link href="https://github.com/firos" target="_blank" className="hover:text-white transition duration-300">
+          <Link href="https://wa.me/+6285236446961" target="_blank" className="hover:text-white transition duration-300">
+            <FaWhatsapp size={20} />
+          </Link>
+          <Link href="https://github.com/Firosmalik000/" target="_blank" className="hover:text-white transition duration-300">
             <FaGithub size={20} />
           </Link>
-          <Link href="https://instagram.com/firos" target="_blank" className="hover:text-white transition duration-300">
+          <Link href="https://www.instagram.com/firos_malik/" target="_blank" className="hover:text-white transition duration-300">
             <FaInstagram size={20} />
           </Link>
-          <Link href="https://linkedin.com/in/firos" target="_blank" className="hover:text-white transition duration-300">
+          <Link href="https://www.linkedin.com/in/firos-malik-abdillah/" target="_blank" className="hover:text-white transition duration-300">
             <FaLinkedin size={20} />
           </Link>
         </div>
 
         {/* Navigation Links */}
+
         <nav className="flex space-x-6 mt-4 md:mt-0">
-          <Link href="/about" className="text-sm hover:text-white transition duration-300">
-            About
-          </Link>
-          <Link href="/projects" className="text-sm hover:text-white transition duration-300">
-            Projects
-          </Link>
-          <Link href="/contact" className="text-sm hover:text-white transition duration-300">
-            Contact
-          </Link>
+          {['About', 'Projects', 'Contactpage'].map((text, index) => (
+            <Link key={index} href={`/${text.toLowerCase()}`} className="text-sm hover:text-white transition duration-300">
+              {text === 'Contactpage' ? 'Contact' : text}
+            </Link>
+          ))}
         </nav>
       </div>
     </footer>

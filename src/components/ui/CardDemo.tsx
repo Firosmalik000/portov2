@@ -2,16 +2,20 @@
 
 import { FaGithub, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 export function CardDemo() {
   const content = [
     {
       icon: <FaWhatsapp />,
+      link: 'https://wa.me/+6285236446961',
     },
     {
       icon: <FaInstagram />,
+      link: 'https://www.instagram.com/firos_malik/',
     },
     {
       icon: <FaGithub />,
+      link: 'https://github.com/firos-malik',
     },
   ];
   return (
@@ -38,7 +42,9 @@ export function CardDemo() {
                 key={index}
                 className="bg-transparent border border-white w-10 h-10 rounded-full flex items-center justify-center"
               >
-                {item.icon}
+                <Link href={item.link} target="_blank" className="hover:text-white transition duration-300">
+                  {item.icon}
+                </Link>
               </motion.div>
             ))}
           </div>{' '}

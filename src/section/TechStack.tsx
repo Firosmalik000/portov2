@@ -20,7 +20,7 @@ const TechStack = () => {
   ];
 
   return (
-    <div className="min-h-screen md:h-[40rem] bg-gradient-to-b from-white to-neutral-100 dark:from-neutral-900 dark:to-transparent flex flex-col items-center justify-center gap-y-4">
+    <div className="min-h-screen md:h-[40rem] bg-gradient-to-b from-white to-neutral-100 dark:from-neutral-900 dark:to-transparent flex flex-col items-center justify-center gap-y-4 mb-6 ">
       <motion.div initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}>
         <p className="text-4xl md:text-3xl font-extrabold text-center text-white mb-4">TECH STACK</p>
       </motion.div>

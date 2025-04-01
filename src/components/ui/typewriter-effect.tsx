@@ -53,9 +53,9 @@ export const TypewriterEffectSmooth = ({
   return (
     <div className={cn('flex items-center space-x-1 mt-2 mb-6', className)}>
       <motion.div className="overflow-hidden pb-2" initial={{ width: '0%' }} animate={{ width: 'fit-content' }} transition={{ duration: 2, ease: 'linear', delay: 1 }}>
-        <div className={'text-xs sm:text-base md:text-xl lg:text-3xl xl:text-3xl font-bold'} style={{ whiteSpace: 'nowrap' }}>
+        <div className={'text-xl sm:text-base md:text-xl lg:text-3xl xl:text-3xl text-center md:text-start xl:text-start lg:text-start font-bold'} style={{ whiteSpace: 'nowrap' }}>
           <span className={`text-blue-500 `}>I am</span>
-          <span className={cn(`text-white`, tektur.className)}> {displayText}</span>
+          <span className={cn(`text-white text-xl sm:text-base md:text-xl lg:text-3xl xl:text-3xl text-center md:text-start xl:text-start lg:text-start`, tektur.className)}> {displayText}</span>
         </div>
       </motion.div>
       <motion.span

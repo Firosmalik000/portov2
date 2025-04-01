@@ -50,8 +50,13 @@ const Project = () => {
 
   return (
     <div className="text-white w-full min-h-screen flex flex-col items-center justify-center p-6 bg-gradient-to-b from-transparent via-gray-900 to-transparent overflow-hidden">
-      <motion.h2 initial={{ y: -50, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ duration: 1, ease: 'easeOut' }} className={cn('text-4xl md:text-5xl font-extrabold text-center mb-8 text-white', rubik.className)}>
-        My Awesome Projects
+      <motion.h2
+        initial={{ y: -50, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1, ease: 'easeOut' }}
+        className={cn('text-2xl md:text-4xl lg:text-3xl text-center font-extrabold  mb-8 text-white', rubik.className)}
+      >
+        MY AWESOME PROJECTS
       </motion.h2>
       <motion.div initial={{ scale: 0.9, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} transition={{ duration: 1, ease: 'easeOut', delay: 0.3 }} className="w-full max-w-4xl">
         <Carousel slides={slideData} />
