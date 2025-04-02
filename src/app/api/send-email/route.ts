@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
       to: ['firosmalik44@gmail.com'],
       subject: subject,
       //   react: EmailTemplate(emailDetail),
-      html: ` <div>
+      react: ` <div>
       <h1>Welcome, ${name}!</h1>
       <p>Phone: ${phone}</p>
       <p>Email: ${email}</p>
