@@ -1,49 +1,101 @@
 'use client';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { CardDemo } from '@/components/ui/CardDemo';
 import { Rubik } from 'next/font/google';
 import { cn } from '@/app/lib/utils';
+import Swal from 'sweetalert2';
 // import { EmailTemplate } from '@/components/email-template';
-import { Resend } from 'resend';
+
 const rubik = Rubik({ subsets: ['latin'], weight: ['400', '700'] });
-const resend = new Resend('re_ivHQ9Dhg_PAAX7sgidR9nsfCovLiYmSWs');
 
 const Contact = () => {
   const inputRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const sendEmail = async (event: React.FormEvent<HTMLFormElement>) => {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
     event.preventDefault();
 
     if (!inputRef.current) return;
 
+    setStatus('loading');
+    setErrorMessage(null);
+
     const formData = new FormData(inputRef.current);
-    // const name = formData.get('name') as string;
-    // const phone = formData.get('phone') as string;
+    const name = formData.get('name') as string;
+    const phone = formData.get('phone') as string;
     const email = formData.get('email') as string;
     const subject = formData.get('subject') as string;
     const message = formData.get('message') as string;
 
     try {
-      const { data, error } = await resend.emails.send({
-        from: email,
-        to: ['firosmalik.job@gmail.com'],
-        subject: subject,
-        react: message,
+      Swal.fire({
+        icon: 'info',
+        title: 'Sending Email',
+        text: 'Please wait a moment, your email is being sent.',
+        didOpen() {
+          Swal.showLoading();
+        },
+      });
+      const response = await fetch('/api/send-email', {
+        // Call API route
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, phone, email, subject, message }),
       });
 
-      if (error) {
-        console.error('Error sending email:', error);
-        alert('Failed to send email. Please try again.');
-        return;
-      }
+      const data = await response.json();
 
-      console.log('Email sent successfully:', data);
-      alert('Email sent successfully!');
-      inputRef.current.reset();
+      if (response.ok) {
+        setStatus('success');
+        Swal.close();
+        Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Your email has been sent successfully.',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          },
+        });
+        inputRef.current.reset();
+      } else {
+        setStatus('error');
+        setErrorMessage(data.error || 'Failed to send email.');
+        console.error('Error sending email:', data.error);
+        Toast.fire({
+          icon: 'success',
+          title: 'Failed to send email. Please try again.',
+        });
+      }
     } catch (error) {
+      setStatus('error');
+      setErrorMessage('An unexpected error occurred.');
       console.error('Error sending email:', error);
-      alert('An unexpected error occurred. Please try again.');
+      Toast.fire({
+        icon: 'success',
+        title: 'An unexpected error occurred. Please try again.',
+      });
+    } finally {
+      // Reset status after a delay (optional)
+      // setTimeout(() => setStatus('idle'), 5000);
     }
   };
 
@@ -71,7 +123,7 @@ const Contact = () => {
                     <label className="block text-gray-300 font-medium mb-1" htmlFor="name">
                       Name
                     </label>
-                    <input type="text" id="name" name="name" className="input input-bordered w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <input type="text" id="name" name="name" className="input input-bordered w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" required />
                   </div>
                   <div className="w-full">
                     <label className="block text-gray-300 font-medium mb-1" htmlFor="phone">
@@ -85,26 +137,34 @@ const Contact = () => {
                   <label className="block text-gray-300 font-medium mb-1" htmlFor="email">
                     Email
                   </label>
-                  <input type="email" id="email" name="email" className="input input-bordered w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                  <input type="email" id="email" name="email" className="input input-bordered w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" required />
                 </div>
 
                 <div>
                   <label className="block text-gray-300 font-medium mb-1" htmlFor="subject">
                     Subject
                   </label>
-                  <input type="text" id="subject" name="subject" className="input input-bordered w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                  <input type="text" id="subject" name="subject" className="input input-bordered w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" required />
                 </div>
 
                 <div>
                   <label className="block text-gray-300 font-medium mb-1" htmlFor="message">
                     Message
                   </label>
-                  <textarea id="message" name="message" className="textarea textarea-bordered w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" rows={4} />
+                  <textarea id="message" name="message" className="textarea textarea-bordered w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" rows={4} required />
                 </div>
 
-                <motion.button type="submit" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full bg-blue-600 text-white font-semibold py-2 rounded-md shadow-md hover:bg-blue-700 transition duration-300">
-                  Send Message
+                <motion.button
+                  type="submit"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full bg-blue-600 text-white font-semibold py-2 rounded-md shadow-md hover:bg-blue-700 transition duration-300"
+                  disabled={status === 'loading' ? true : false}
+                >
+                  {status === 'loading' ? 'Sending...' : 'Send Message'}
                 </motion.button>
+
+                {status === 'error' && <p className="text-red-500 mt-2">{errorMessage}</p>}
               </div>
             </form>
           </div>
