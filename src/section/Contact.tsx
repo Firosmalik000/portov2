@@ -5,7 +5,6 @@ import { CardDemo } from '@/components/ui/CardDemo';
 import { Rubik } from 'next/font/google';
 import { cn } from '@/app/lib/utils';
 import Swal from 'sweetalert2';
-// import { EmailTemplate } from '@/components/email-template';
 
 const rubik = Rubik({ subsets: ['latin'], weight: ['400', '700'] });
 
@@ -93,9 +92,6 @@ const Contact = () => {
         icon: 'success',
         title: 'An unexpected error occurred. Please try again.',
       });
-    } finally {
-      // Reset status after a delay (optional)
-      // setTimeout(() => setStatus('idle'), 5000);
     }
   };
 
