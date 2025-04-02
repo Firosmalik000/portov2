@@ -8,14 +8,13 @@ export async function POST(req: NextRequest) {
   try {
     const { name, phone, email, subject, message } = await req.json();
 
-    // Server-side validation (basic example)
     if (!name || !email || !subject || !message) {
       return NextResponse.json({ error: 'Please fill in all fields.' }, { status: 400 });
     }
 
     const { data, error } = await resend.emails.send({
-      from: 'Acme <onboarding@resend.dev>', // Replace with your verified sender
-      to: ['firosmalik44@gmail.com'], // Replace with your recipient
+      from: 'Acme <onboarding@resend.dev>',
+      to: ['firosmalik44@gmail.com'],
       subject: subject,
       react: EmailTemplate({ name, phone, email, message }),
     });
