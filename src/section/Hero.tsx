@@ -11,7 +11,7 @@ import Link from 'next/link';
 const Hero = () => {
   return (
     <BackgroundBeamsWithCollision>
-      <div className="flex flex-col md:flex-row items-center justify-between min-h-screen w-full px-0 md:px-8 lg:px-16 xl:px-32 2xl:px-48 py-8 md:py-0 m-12 md:m-0 lg:m-0 xl:m-0 2xl:m-0">
+      <div className="flex flex-col md:flex-row items-center justify-between min-h-screen w-full px-0 md:px-8 lg:px-16 xl:px-32 2xl:px-48 py-8 md:py-0 m-12 md:m-0 lg:m-0 xl:m-0 2xl:m-0 bg-[#0a0a0a]">
         {/* Hero Text */}
         <div className="h-full md:h-screen relative  flex items-center justify-center pb-[90px]">
           <div className="max-w-4xl mb-8 md:mb-0">

@@ -20,7 +20,7 @@ const TechStack = () => {
   ];
 
   return (
-    <div className="min-h-screen md:h-[40rem] bg-gradient-to-b from-white to-neutral-100 dark:from-neutral-900 dark:to-transparent flex flex-col items-center justify-center gap-y-4 mb-6 ">
+    <div className="min-h-screen md:h-[40rem] bg-gradient-to-b from-=[#0a0a0a] dark:to-transparent flex flex-col items-center justify-center gap-y-4 mb-6 ">
       <motion.div initial={{ x: -100, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}>
         <p className="text-4xl md:text-3xl font-extrabold text-center text-white mb-4">TECH STACK</p>
       </motion.div>
@@ -31,7 +31,7 @@ const TechStack = () => {
             initial={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="flex flex-col items-center justify-center p-6 bg-white dark:bg-neutral-800 shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl"
+            className="flex flex-col items-center justify-center p-6 bg-neutral-900 shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl"
           >
             {item.icon}
             <p className="text-lg font-semibold text-white mt-2">{item.text}</p>
